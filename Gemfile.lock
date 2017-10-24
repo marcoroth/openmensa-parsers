@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     mini_portile2 (2.3.0)
     nokogiri (1.8.1)
