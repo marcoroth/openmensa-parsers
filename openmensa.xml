@@ -5,154 +5,160 @@
     <day date="2017-10-24">
       <category name="Gericht">
         <meal>
-          <name>Geschmorter Wild-Fleisch-Vogel</name>
-          <note>per 100 g - so wie weitere Auswahl vom Buffet - Tagessuppe oder Jus</note>
-          <price role="employee">2.90</price>
-          <price role="other">3.90</price>
+          <name>Pizza Capri</name>
+          <note>mit Salami, Mozzarella, frischen Tomaten, - Peperoni und roten Zwiebeln - dazu marktfrischer Menusalat</note>
+          <price role="employee">13.50</price>
+          <price role="other">17.50</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>hausgemachtes Schweins Cordon Bleu</name>
-          <note>mit Pommes Frites und Glacierte Karotten  oder Menusalat - Tagessuppe oder Jus</note>
-          <price role="employee">8.50</price>
-          <price role="other">13.50</price>
+          <name>Galizische Crevetten-Pfanne</name>
+          <note>mit Peperoni und roten Zwiebeln - dazu Safran-Reis - und gedünsteter Blattmangold</note>
+          <price role="employee">13.50</price>
+          <price role="other">17.50</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Apfel-Gemüse Pfanne</name>
-          <note>mit Parpika Reis - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
-          <price role="employee">7.00</price>
-          <price role="other">9.00</price>
+          <name>Truthahn-Geschnetzeltes "Calvados"</name>
+          <note>dazu luftiges Kartoffelpüree - und Mandel-Broccoliröschen</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Spaghetti Bolognaise</name>
-          <note>Herkunft Fleisch - Schweiz</note>
-          <price role="employee">6.00</price>
-          <price role="other">7.00</price>
+          <name>Pasta alla Calabrese</name>
+          <note>mit sautierten Zucchettistreifen - und mediterraner Tomatensauce  - dazu marktfrischer Menusalat</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Es hät solangs hät</name>
+          <note>schonend zubereitetes  - Fleisch oder Fisch  - attraktives Gemüse - und Stärkebeilage  - chömed inne go luege</note>
+          <price role="employee">10.50</price>
+          <price role="other">14.90</price>
         </meal>
       </category>
     </day>
     <day date="2017-10-25">
       <category name="Gericht">
         <meal>
-          <name>Vietnamesisches Buffet</name>
-          <note>Verschiedene Fleisch oder Fischgerichte (3Stk) - Beilagen nach Wahl - Salat vom Buffet - Tagessuppe oder Jus</note>
-          <price role="employee">8.50</price>
-          <price role="other">15.00</price>
+          <name>Fusilli con salsiccia</name>
+          <note>mit Schweinswurst, Broccoli, - gedörrten Tomaten und Pecorino - Insalata</note>
+          <price role="employee">13.10</price>
+          <price role="other">17.10</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Ebly-Tomaten-Risotto</name>
-          <note>Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
-          <price role="employee">7.00</price>
-          <price role="other">9.00</price>
+          <name>Pepito</name>
+          <note>mit Schweizer Truthahnschnitzel, - Cocktailsauce, Eisberg,  - Tomate und Röstzwiebeln - dazu Wedges-Potatos</note>
+          <price role="employee">12.50</price>
+          <price role="other">16.50</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Spaghetti Bolognaise</name>
-          <note>Herkunft Fleisch - Schweiz</note>
-          <price role="employee">6.00</price>
-          <price role="other">7.00</price>
+          <name>Zander-Knusperli im Bierteig</name>
+          <note>mit leichter Tartarsauce, - Basilikum-Reis - und sämigem Rahmspinat</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Käse Spätzli</name>
+          <note>mit Zwiebeln und Knoblauch - an Rahm und Raclette Käse  - dazu marktfrischer Menusalat</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Es hät solangs hät</name>
+          <note>schonend zubereitetes  - Fleisch oder Fisch  - attraktives Gemüse - und Stärkebeilage  - chömed inne go luege</note>
+          <price role="employee">10.50</price>
+          <price role="other">14.90</price>
         </meal>
       </category>
     </day>
     <day date="2017-10-26">
       <category name="Gericht">
         <meal>
-          <name>One Climate Day:Guibert Forellenfilets weiss</name>
-          <note>per 100 g - so wie weitere Auswahl vom Buffet</note>
-          <price role="employee">2.90</price>
-          <price role="other">3.90</price>
+          <name>Pizza "Verdura"</name>
+          <note>mit würziger Tomatensauce, - Grillgemüse und Ruccola - Insalata</note>
+          <price role="employee">12.80</price>
+          <price role="other">16.80</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>One Climate Day:Schweizer Pouletschenkel</name>
-          <note>mit geröstetem Kartoffel-Peperoni-Auberginengemüse   - Leichter Tomatensauce  - Tagessuppe oder Jus</note>
-          <price role="employee">8.50</price>
-          <price role="other">13.50</price>
+          <name>Poulet-Stroganoff</name>
+          <note>mit Schweizer Pouletbruststreifen, - sämiger Paprikasauce, Eierspätzli, - gedämpftem Broccoli und Crème fraiche</note>
+          <price role="employee">11.50</price>
+          <price role="other">15.50</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>One Climate Day: Penne Arrabiata</name>
-          <note>mit frischem Basilikum - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
-          <price role="employee">7.00</price>
-          <price role="other">9.00</price>
+          <name>Zürcher-Geschnetzeltes</name>
+          <note>mit Quorn und gebratenen Pilzen, - an sämiger Rahmsauce - dazu goldgelbe Kartoffelrösti</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>One Climate Day: Spaghetti Bolognaise</name>
-          <note>Herkunft Fleisch - Schweiz</note>
-          <price role="employee">6.00</price>
-          <price role="other">7.00</price>
+          <name>Orrecchiette</name>
+          <note>mit farbigen Peperoniwürfel, - Rucola und Mozzarellaperlen - dazu marktfrischer Menusalat</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Es hät solangs hät</name>
+          <note>schonend zubereitetes  - Fleisch oder Fisch  - attraktives Gemüse - und Stärkebeilage  - chömed inne go luege</note>
+          <price role="employee">10.50</price>
+          <price role="other">14.90</price>
         </meal>
       </category>
     </day>
     <day date="2017-10-27">
       <category name="Gericht">
         <meal>
-          <name>Buffet</name>
-          <note>Verschiedene Fleisch oder Fischgerichte (3Stk) - Beilagen nach Wahl - Salat vom Buffet - Tagessuppe oder Jus</note>
-          <price role="employee">8.50</price>
-          <price role="other">14.00</price>
+          <name>Sautierte Rindshuft-Streifen</name>
+          <note>mit Steinpilzen und Gemüse - an sämiger Pfeffersauce - auf Safran-Nudel-Bett</note>
+          <price role="employee">13.80</price>
+          <price role="other">17.80</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Hausgemachte Gemüse-Wähe</name>
-          <note>dazu ein knackiger Salat vom Buffet - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
-          <price role="employee">6.00</price>
-          <price role="other">9.00</price>
+          <name>Gebratene Currywurst nach Bielefelder-Art</name>
+          <note>dazu Pommes-Frites - und zweifarbige Karotten</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Spaghetti Bolognaise</name>
-          <note>Herkunft Fleisch - Schweiz</note>
-          <price role="employee">6.00</price>
-          <price role="other">7.00</price>
-        </meal>
-      </category>
-    </day>
-    <day date="2017-10-30">
-      <category name="Gericht">
-        <meal>
-          <name>Grilliertes Schweins Steak</name>
-          <note>dazu eine leichte Pfeffersauce - per 100 g - so wie weitere Auswahl vom Buffet - Tagessuppe oder Jus</note>
-          <price role="employee">2.90</price>
-          <price role="other">3.90</price>
+          <name>Wähenplausch</name>
+          <note>ein Stück gluschtige  - vegetarische Wähe - dazu marktfrischer Menusalat</note>
+          <price role="employee">8.20</price>
+          <price role="other">12.90</price>
         </meal>
       </category>
       <category name="Gericht">
         <meal>
-          <name>Ofen Fleischkäse</name>
-          <note>dazu Kartoffelstock und geschmorter Chicoée mit Zimt und Peperoncini oder Menusalat - Tagessuppe oder Jus</note>
-          <price role="employee">8.50</price>
-          <price role="other">13.50</price>
-        </meal>
-      </category>
-      <category name="Gericht">
-        <meal>
-          <name>Kürbis Ravioli</name>
-          <note>mit einer leichten Kräuter Sauce - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
-          <price role="employee">7.00</price>
-          <price role="other">9.00</price>
-        </meal>
-      </category>
-      <category name="Gericht">
-        <meal>
-          <name>Rinds Cannelloni</name>
-          <note>Keine Beschreibung</note>
-          <price role="employee">6.00</price>
-          <price role="other">7.00</price>
+          <name>Es hät solangs hät</name>
+          <note>schonend zubereitetes  - Fleisch oder Fisch  - attraktives Gemüse - und Stärkebeilage  - chömed inne go luege</note>
+          <price role="employee">10.50</price>
+          <price role="other">14.90</price>
         </meal>
       </category>
     </day>
