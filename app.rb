@@ -26,8 +26,8 @@ get '/parsers/svgroup' do
       host = uri.host
 
       unless host.nil?
-        mensa_xml_url = "#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/"+ host.split(".")[0]
-        output += "<a href='#{mensa_xml_url}'>#{mensa_name}</a><br>"
+        mensa_xml_url = "#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + host.split(".")[0]
+        output += "<a href='#{mensa_xml_url}'>#{mensa_name}</a> <a href='#{mensa_xml_url}/meta'>Meta</a><br>"
       end
     rescue URI::InvalidURIError
       puts "Fehler"
@@ -43,7 +43,6 @@ get '/parsers/svgroup/:name', provides: ['xml'] do
   mensa_name = params["name"]
 
   url = "http://#{mensa_name}.sv-restaurant.ch/de/menuplan/"
-
   doc = Nokogiri::HTML(open(url))
 
   builder = Nokogiri::XML::Builder.new(encoding: "utf-8") do |xml|
@@ -102,7 +101,71 @@ get '/parsers/svgroup/:name', provides: ['xml'] do
     }
   end
 
-  File.write("openmensa.xml", builder.to_xml)
+  builder.to_xml
+end
+
+get '/parsers/svgroup/:name/meta', provides: ['xml'] do
+  mensa_name = params["name"]
+
+  url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
+  json = JSON.load(open(url))
+
+  url = "http://#{mensa_name}.sv-restaurant.ch"
+  doc = Nokogiri::HTML(open(url + "/de/menuplan/"))
+
+  name = ""
+  address = ""
+  city = ""
+  phone = ""
+  latitude = ""
+  longitude = ""
+
+  json["items"].each do |i|
+
+    if i["link"] == url.gsub!("//", "\/\/")
+      name = i["name"]
+      address = i["address"]
+      latitude = i["lat"]
+      longitude = i["lng"]
+    end
+  end
+
+
+
+  builder = Nokogiri::XML::Builder.new(encoding: "utf-8") do |xml|
+    xml.openmensa(version: "2.1", xmlns: "http://openmensa.org/open-mensa-v2", "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance", "xsi:schemaLocation": "http://openmensa.org/open-mensa-v2 http://openmensa.org/open-mensa-v2.xsd") {
+      xml.version("5.04-4")
+      xml.canteen {
+        xml.name(name)
+        xml.address(address)
+        xml.city("")
+        xml.phone("")
+        xml.location("", latitude: latitude, longitude: longitude)
+        xml.availability("")
+        xml.times(type: "opening") {
+          xml.monday(open: "11:00-14:00")
+          xml.tuesday(open: "11:00-14:00")
+          xml.wednesday(open: "11:00-14:00")
+          xml.thursday(open: "11:00-14:00")
+          xml.friday(open: "11:00-14:00")
+          xml.saturday(open: "11:00-14:00")
+          xml.sunday(closed: "true")
+        }
+        xml.feed(name: "today", priority: "0"){
+          xml.schedule(dayOfMonth: "*", dayOfWeek: "*", hour: "8-14", retry: "30 1")
+          xml.url("#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + mensa_name + "/today")
+          xml.source(url)
+        }
+        xml.feed(name: "full", priority: "1"){
+          xml.schedule(dayOfMonth: "*", dayOfWeek: "1", hour: "8", retry: "60 5 1440")
+          xml.url("#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + mensa_name)
+          xml.source(url)
+        }
+      }
+    }
+
+  end
+
 
   builder.to_xml
 end
