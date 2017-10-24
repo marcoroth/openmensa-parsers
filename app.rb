@@ -4,6 +4,11 @@ require 'open-uri'
 require 'date'
 require 'json'
 
+
+get '/' do
+  redirect to('/parsers/svgroup')
+end
+
 get '/parsers/svgroup' do
 
   url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
@@ -22,7 +27,7 @@ get '/parsers/svgroup' do
       host = uri.host
 
       unless host.nil?
-        mensa_xml_url = "http://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/"+ host.split(".")[0]
+        mensa_xml_url = "#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/"+ host.split(".")[0]
         output += "<a href='#{mensa_xml_url}'>#{mensa_name}</a><br>"
       end
     rescue URI::InvalidURIError
