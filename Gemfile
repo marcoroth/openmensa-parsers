@@ -1,5 +1,3 @@
-ruby '2.3.5'
+ruby '2.3.0'
 
-gem 'date'
-gem 'open-uri'
 gem 'nokogiri'
