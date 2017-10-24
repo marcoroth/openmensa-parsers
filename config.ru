@@ -1,3 +1,3 @@
-require_relative './app.rb'
+require './app'
 
-run SvGroupParser
+run Sinatra::Application
