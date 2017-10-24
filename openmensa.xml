@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openmensa xmlns="http://openmensa.org/open-mensa-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://openmensa.org/open-mensa-v2 http://openmensa.org/open-mensa-v2.xsd">
+  <version>5.04-4</version>
+  <canteen>
+    <day date="2017-10-24">
+      <category name="Gericht">
+        <meal>
+          <name>Geschmorter Wild-Fleisch-Vogel</name>
+          <note>per 100 g - so wie weitere Auswahl vom Buffet - Tagessuppe oder Jus</note>
+          <price role="employee">2.90</price>
+          <price role="other">3.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>hausgemachtes Schweins Cordon Bleu</name>
+          <note>mit Pommes Frites und Glacierte Karotten  oder Menusalat - Tagessuppe oder Jus</note>
+          <price role="employee">8.50</price>
+          <price role="other">13.50</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Apfel-Gemüse Pfanne</name>
+          <note>mit Parpika Reis - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
+          <price role="employee">7.00</price>
+          <price role="other">9.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Spaghetti Bolognaise</name>
+          <note>Herkunft Fleisch - Schweiz</note>
+          <price role="employee">6.00</price>
+          <price role="other">7.00</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2017-10-25">
+      <category name="Gericht">
+        <meal>
+          <name>Vietnamesisches Buffet</name>
+          <note>Verschiedene Fleisch oder Fischgerichte (3Stk) - Beilagen nach Wahl - Salat vom Buffet - Tagessuppe oder Jus</note>
+          <price role="employee">8.50</price>
+          <price role="other">15.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Ebly-Tomaten-Risotto</name>
+          <note>Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
+          <price role="employee">7.00</price>
+          <price role="other">9.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Spaghetti Bolognaise</name>
+          <note>Herkunft Fleisch - Schweiz</note>
+          <price role="employee">6.00</price>
+          <price role="other">7.00</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2017-10-26">
+      <category name="Gericht">
+        <meal>
+          <name>One Climate Day:Guibert Forellenfilets weiss</name>
+          <note>per 100 g - so wie weitere Auswahl vom Buffet</note>
+          <price role="employee">2.90</price>
+          <price role="other">3.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>One Climate Day:Schweizer Pouletschenkel</name>
+          <note>mit geröstetem Kartoffel-Peperoni-Auberginengemüse   - Leichter Tomatensauce  - Tagessuppe oder Jus</note>
+          <price role="employee">8.50</price>
+          <price role="other">13.50</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>One Climate Day: Penne Arrabiata</name>
+          <note>mit frischem Basilikum - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
+          <price role="employee">7.00</price>
+          <price role="other">9.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>One Climate Day: Spaghetti Bolognaise</name>
+          <note>Herkunft Fleisch - Schweiz</note>
+          <price role="employee">6.00</price>
+          <price role="other">7.00</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2017-10-27">
+      <category name="Gericht">
+        <meal>
+          <name>Buffet</name>
+          <note>Verschiedene Fleisch oder Fischgerichte (3Stk) - Beilagen nach Wahl - Salat vom Buffet - Tagessuppe oder Jus</note>
+          <price role="employee">8.50</price>
+          <price role="other">14.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Hausgemachte Gemüse-Wähe</name>
+          <note>dazu ein knackiger Salat vom Buffet - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
+          <price role="employee">6.00</price>
+          <price role="other">9.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Spaghetti Bolognaise</name>
+          <note>Herkunft Fleisch - Schweiz</note>
+          <price role="employee">6.00</price>
+          <price role="other">7.00</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2017-10-30">
+      <category name="Gericht">
+        <meal>
+          <name>Grilliertes Schweins Steak</name>
+          <note>dazu eine leichte Pfeffersauce - per 100 g - so wie weitere Auswahl vom Buffet - Tagessuppe oder Jus</note>
+          <price role="employee">2.90</price>
+          <price role="other">3.90</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Ofen Fleischkäse</name>
+          <note>dazu Kartoffelstock und geschmorter Chicoée mit Zimt und Peperoncini oder Menusalat - Tagessuppe oder Jus</note>
+          <price role="employee">8.50</price>
+          <price role="other">13.50</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Kürbis Ravioli</name>
+          <note>mit einer leichten Kräuter Sauce - Tagessuppe oder Jus - Bitte an der Kasse bestellen.</note>
+          <price role="employee">7.00</price>
+          <price role="other">9.00</price>
+        </meal>
+      </category>
+      <category name="Gericht">
+        <meal>
+          <name>Rinds Cannelloni</name>
+          <note>Keine Beschreibung</note>
+          <price role="employee">6.00</price>
+          <price role="other">7.00</price>
+        </meal>
+      </category>
+    </day>
+  </canteen>
+</openmensa>
