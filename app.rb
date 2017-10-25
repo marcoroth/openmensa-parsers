@@ -86,7 +86,47 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
 
   url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
   json = JSON.load(open(url))
+
   mensa_url = "http://#{mensa_name}.sv-restaurant.ch"
+  menuplan_url = mensa_url + "/de/menuplan/"
+  doc = Nokogiri::HTML(open(menuplan_url))
+
+  week_days = [
+    { name: :sunday, de: "Sonntag", fr: "dimanche" },
+    { name: :monday, de: "Montag", fr: "lundi" },
+    { name: :tuesday, de: "Dienstag", fr: "mardi" },
+    { name: :wednesday, de: "Mittwoch", fr: "mercredi" },
+    { name: :thursday, de: "Donnerstag", fr: "jeudi" },
+    { name: :friday, de: "Freitag", fr: "vendredi" },
+    { name: :saturday, de: "Samstag", fr: "samedi" }
+  ]
+
+  opening_hours = {
+    monday: { times: "true", attribute: "closed" },
+    tuesday: { times: "true", attribute: "closed" },
+    wednesday: { times: "true", attribute: "closed" },
+    thursday: { times: "true", attribute: "closed" },
+    friday: { times: "true", attribute: "closed" },
+    saturday: { times: "true", attribute: "closed" },
+    sunday: { times: "true", attribute: "closed" }
+  }
+
+  opening_hours_el = doc.css(".opening-hours p")
+
+  opening_hours_el.each do |oh|
+    days = oh.css("strong").first.content.split("- ")
+    hours = oh.content.gsub(oh.css("strong").first.content, "").strip!.gsub!(" Uhr", "").split("-")
+
+    first_day = week_days.select{ |wd| wd[:de] == days.first || wd[:fr] == days.first }.first
+    last_day = week_days.select{ |wd| wd[:de] == days.last || wd[:fr] == days.last}.first
+
+    unless first_day.nil? && last_day.nil?
+      week_days[week_days.index(first_day)..week_days.index(last_day)].each do |d|
+        opening_hours[d[:name]][:times] = hours.join("-")
+        opening_hours[d[:name]][:attribute] = "open"
+      end
+    end
+  end
 
   name = ""
   address = ""
@@ -134,13 +174,9 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
         xml.location("", latitude: latitude, longitude: longitude)
         xml.availability(availability)
         xml.times(type: "opening") {
-          xml.monday(open: "11:00-14:00")
-          xml.tuesday(open: "11:00-14:00")
-          xml.wednesday(open: "11:00-14:00")
-          xml.thursday(open: "11:00-14:00")
-          xml.friday(open: "11:00-14:00")
-          xml.saturday(open: "11:00-14:00")
-          xml.sunday(closed: "true")
+          opening_hours.each do |oh|
+            eval("xml.#{oh.first}(#{oh.last[:attribute]}: '#{oh.last[:times]}')")
+          end
         }
         xml.feed(name: "today", priority: "0"){
           xml.schedule(dayOfMonth: "*", dayOfWeek: "*", hour: "8-14", retry: "30 1")
