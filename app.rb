@@ -111,22 +111,22 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
     sunday: { times: "true", attribute: "closed" }
   }
 
-  opening_hours_el = doc.css(".opening-hours p")
-
-  opening_hours_el.each do |oh|
-    days = oh.css("strong").first.content.split("- ")
-    hours = oh.content.gsub(oh.css("strong").first.content, "").strip!.gsub!(" Uhr", "").split("-")
-
-    first_day = week_days.select{ |wd| wd[:de] == days.first || wd[:fr] == days.first }.first
-    last_day = week_days.select{ |wd| wd[:de] == days.last || wd[:fr] == days.last}.first
-
-    unless first_day.nil? && last_day.nil?
-      week_days[week_days.index(first_day)..week_days.index(last_day)].each do |d|
-        opening_hours[d[:name]][:times] = hours.join("-")
-        opening_hours[d[:name]][:attribute] = "open"
-      end
-    end
-  end
+  # opening_hours_el = doc.css(".opening-hours p")
+  #
+  # opening_hours_el.each do |oh|
+  #   days = oh.css("strong").first.content.split("- ")
+  #   hours = oh.content.gsub(oh.css("strong").first.content, "").strip!.gsub!(" Uhr", "").split("-")
+  #
+  #   first_day = week_days.select{ |wd| wd[:de] == days.first || wd[:fr] == days.first }.first
+  #   last_day = week_days.select{ |wd| wd[:de] == days.last || wd[:fr] == days.last}.first
+  #
+  #   unless first_day.nil? && last_day.nil?
+  #     week_days[week_days.index(first_day)..week_days.index(last_day)].each do |d|
+  #       opening_hours[d[:name]][:times] = hours.join("-")
+  #       opening_hours[d[:name]][:attribute] = "open"
+  #     end
+  #   end
+  # end
 
   name = ""
   address = ""
