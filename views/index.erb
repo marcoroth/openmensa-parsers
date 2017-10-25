@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SV-Group OpenMensa</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>SV-Group OpenMensa Parser</h1><br>
+
+      <% url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json" %>
+      <% json = JSON.load(open(url)) %>
+
+      <p><b><%= "#{json["items"].count}" %></b> Einträge</p>
+
+      <table class="table">
+        <% json["items"].each do |i| %>
+          <tr>
+            <% mensa_name = i["name"] %>
+            <% mensa_url = i["link"] %>
+
+            <% begin %>
+              <% uri = URI(mensa_url) %>
+              <% host = uri.host %>
+
+              <% unless host.nil? %>
+                <% mensa_xml_url = "#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + host.split(".")[0] %>
+                <td>#<%= json["items"].index(i) + 1 %></td>
+                <td><a href="<%= mensa_url %>"><%= mensa_name %> </a></td>
+                <td class="hide-sm"><%= i["address"] %></td>
+                <td><a href='<%= mensa_xml_url %>'>XML</a></td>
+                <td><a href='<%= mensa_xml_url %>/meta'>Meta</a></td>
+              <% end %>
+              
+            <% rescue URI::InvalidURIError %>
+              <% puts "Fehler" %>
+            <% end %>
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        console.log("TODO: implement table");
+      });
+    </script>
+
+  </body>
+</html>

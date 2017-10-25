@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'nokogiri'
 require 'open-uri'
 require 'date'
@@ -9,34 +10,8 @@ get '/' do
 end
 
 get '/parsers/svgroup' do
-
-  url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
-
-  json = JSON.load(open(url))
-
-  output = "<h1>SV-Group Mensa</h1>"
-  output += "<p><b>#{json["items"].count}</b> Einträge</p>"
-
-  json["items"].each do |i|
-    mensa_name = i["name"]
-    mensa_url = i["link"]
-
-    begin
-      uri = URI(mensa_url)
-      host = uri.host
-
-      unless host.nil?
-        mensa_xml_url = "#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + host.split(".")[0]
-        output += "<a href='#{mensa_xml_url}'>#{mensa_name}</a> <a href='#{mensa_xml_url}/meta'>Meta</a><br>"
-      end
-    rescue URI::InvalidURIError
-      puts "Fehler"
-    end
-  end
-
-  output
+  erb :index
 end
-
 
 get '/parsers/svgroup/:name', provides: ['xml'] do
 
