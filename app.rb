@@ -157,6 +157,11 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
 
   end
 
-
   builder.to_xml
+end
+
+get '/parsers/svgroup/:name/today' do
+  "today feed is not implemented yet"\
+  "<br><br>"\
+  "=> <a href='/parsers/svgroup/#{params[:name]}'>Take a look at the full feed instead</a>"
 end
