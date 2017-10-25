@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'nokogiri'
+require 'uri'
 require 'open-uri'
+require 'net/http'
 require 'date'
 require 'json'
 
@@ -84,20 +86,18 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
 
   url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
   json = JSON.load(open(url))
-
-  url = "http://#{mensa_name}.sv-restaurant.ch"
-  doc = Nokogiri::HTML(open(url + "/de/menuplan/"))
+  mensa_url = "http://#{mensa_name}.sv-restaurant.ch"
 
   name = ""
   address = ""
   city = ""
-  phone = ""
   latitude = ""
   longitude = ""
+  availability = ""
 
   json["items"].each do |i|
 
-    if i["link"] == url.gsub!("//", "\/\/")
+    if i["link"] == mensa_url.gsub!("//", "\/\/")
       name = i["name"]
       address = i["address"]
       latitude = i["lat"]
@@ -112,11 +112,16 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
         end
       end
 
+      url = URI("http://www.sv-restaurant.ch/de/personalrestaurants/restaurant-suche/?type=8700")
+      http = Net::HTTP.new(url.host)
+      request = Net::HTTP::Post.new(url)
+      request.body = "searchfield=#{URI::encode(name)}"
+      response = http.request(request).read_body
+
+      availability = response.include?('\"type\":\"\\\\u00f6ffentlich') ? "public" : "restricted"
+
     end
-
   end
-
-
 
   builder = Nokogiri::XML::Builder.new(encoding: "utf-8") do |xml|
     xml.openmensa(version: "2.1", xmlns: "http://openmensa.org/open-mensa-v2", "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance", "xsi:schemaLocation": "http://openmensa.org/open-mensa-v2 http://openmensa.org/open-mensa-v2.xsd") {
@@ -127,7 +132,7 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
         xml.city(city)
         xml.phone("")
         xml.location("", latitude: latitude, longitude: longitude)
-        xml.availability("")
+        xml.availability(availability)
         xml.times(type: "opening") {
           xml.monday(open: "11:00-14:00")
           xml.tuesday(open: "11:00-14:00")
@@ -140,12 +145,12 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
         xml.feed(name: "today", priority: "0"){
           xml.schedule(dayOfMonth: "*", dayOfWeek: "*", hour: "8-14", retry: "30 1")
           xml.url("#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + mensa_name + "/today")
-          xml.source(url)
+          xml.source(mensa_url)
         }
         xml.feed(name: "full", priority: "1"){
           xml.schedule(dayOfMonth: "*", dayOfWeek: "1", hour: "8", retry: "60 5 1440")
           xml.url("#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + mensa_name)
-          xml.source(url)
+          xml.source(mensa_url)
         }
       }
     }
