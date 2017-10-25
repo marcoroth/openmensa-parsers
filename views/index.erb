@@ -15,7 +15,16 @@
 
       <p><b><%= "#{json["items"].count}" %></b> Einträge</p>
 
-      <table class="table">
+      <table class="table row">
+
+        <tr>
+          <th>Nr.</th>
+          <th>Mensa</th>
+          <th class="hidden-xs">Adresse</th>
+          <th class="hidden-xs">Stadt</th>
+          <th colspan="3">Links</th>
+        </tr>
+
         <% json["items"].each do |i| %>
           <tr>
             <% mensa_name = i["name"] %>
@@ -24,23 +33,37 @@
             <% begin %>
               <% uri = URI(mensa_url) %>
               <% host = uri.host %>
+              <% split = i["address"].split(" ") %>
+              <% city = split.last %>
+
+              <% unless city.nil? %>
+                <% if city.length <= 2 || city.include?("(") %>
+                  <% city = split[(split.size-2)..split.size].join(" ") %>
+                <% end %>
+              <% end %>
 
               <% unless host.nil? %>
                 <% mensa_xml_url = "#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + host.split(".")[0] %>
                 <td>#<%= json["items"].index(i) + 1 %></td>
-                <td><a href="<%= mensa_url %>"><%= mensa_name %> </a></td>
-                <td class="hide-sm"><%= i["address"] %></td>
+                <td><a href="<%= mensa_url %>" target="_blank"><%= mensa_name %> </a></td>
+                <td class="hidden-xs"><%= i["address"] %></td>
+                <td class="hidden-xs"><%= city %></td>
                 <td><a href='<%= mensa_xml_url %>'>XML</a></td>
+                <td><a href='<%= mensa_xml_url %>/today'>Today</a></td>
                 <td><a href='<%= mensa_xml_url %>/meta'>Meta</a></td>
               <% end %>
-              
-            <% rescue URI::InvalidURIError %>
-              <% puts "Fehler" %>
+
+            <% rescue %>
             <% end %>
           </tr>
         <% end %>
 
       </table>
+
+      <footer>
+        © SV (Schweiz) AG - Alle Angaben ohne Gewähr, Irrtum und Änderungen vorbehalten
+      </footer><br />
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
