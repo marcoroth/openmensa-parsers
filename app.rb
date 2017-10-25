@@ -102,7 +102,18 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
       address = i["address"]
       latitude = i["lat"]
       longitude = i["lng"]
+
+      split = i["address"].split(" ")
+      city = split.last
+
+      unless city.nil?
+        if city.length <= 2 || city.include?("(")
+          city = split[(split.size-2)..split.size].join(" ")
+        end
+      end
+
     end
+
   end
 
 
@@ -113,7 +124,7 @@ get '/parsers/svgroup/:name/meta', provides: ['xml'] do
       xml.canteen {
         xml.name(name)
         xml.address(address)
-        xml.city("")
+        xml.city(city)
         xml.phone("")
         xml.location("", latitude: latitude, longitude: longitude)
         xml.availability("")
