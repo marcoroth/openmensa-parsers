@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.10.3)
-    builder (3.2.3)
     json (2.1.0)
     mini_portile2 (2.3.0)
     multi_json (1.12.2)
@@ -30,7 +29,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  builder
   json
   nokogiri
   sinatra
