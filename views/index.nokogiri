@@ -1,0 +1,24 @@
+url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
+json = JSON.load(open(url))
+
+
+xml = ::Nokogiri::XML::Builder.new { |xml|
+  xml.openmensa(version: "2.1", xmlns: "http://openmensa.org/open-mensa-v2", "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance", "xsi:schemaLocation": "http://openmensa.org/open-mensa-v2 http://openmensa.org/open-mensa-v2.xsd") {
+    xml.version("5.04-4")
+
+    json["items"].each do |i|
+      begin
+        uri = URI(i["link"])
+        host = uri.host
+        mensa_name = host.split(".")[0]
+        xml.canteen {
+          xml.name(mensa_name)
+          xml.url("#{request.scheme}://" + request.host + ":" + request.port.to_s + "/parsers/svgroup/" + mensa_name + "/meta")
+        }
+      rescue
+      end
+    end
+
+
+  }
+}

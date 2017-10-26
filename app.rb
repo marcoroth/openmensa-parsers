@@ -16,19 +16,7 @@ get '/parsers/svgroup' do
 end
 
 get '/parsers/svgroup/meta', provides: ['xml'] do
-
-  url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
-  json = JSON.load(open(url))
-
-  json["items"][0..1].each do |i|
-    mensa_url = i["link"]
-
-    begin
-      uri = URI(mensa_url)
-      host = uri.host
-      nokogiri :meta, locals: {mensa_name: host.split(".")[0]}
-    end
-  end
+  nokogiri :index
 end
 
 get '/parsers/svgroup/:name' do
