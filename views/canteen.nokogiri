@@ -29,6 +29,10 @@ xml = ::Nokogiri::XML::Builder.new { |xml|
             prices = item.css(".price")
             description = item.css(".menu-description").first.content.gsub("\n\n", "\n").gsub("\n", " - ")
 
+            if meal.length == 0
+              description = "Kein Menu Name"
+            end
+
             if description.length == 0
               description = "Keine Beschreibung"
             end
