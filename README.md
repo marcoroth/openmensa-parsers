@@ -2,7 +2,7 @@
 
 ## SV-Group Parser
 
-* [All SV-Restraurants here](http://openmensa.herokuapp.com/parsers/svgroup)
+* [All SV-Restraurants here](https://openmensa.herokuapp.com/parsers/svgroup)
 * [SV (Schweiz) AG](http://www.sv-restaurant.ch/de/)
 
 
