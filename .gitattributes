@@ -1,3 +1,1 @@
-views/index.erb linguist-language=Ruby
-
-
+*.erb linguist-language=Ruby
