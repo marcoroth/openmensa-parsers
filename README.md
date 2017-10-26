@@ -1,4 +1,4 @@
-# OpenMensa Parser
+# OpenMensa Parsers
 
 ## SV-Group Parser
 
@@ -8,4 +8,4 @@
 
 ## OpenMensa Parser Documentation
 
-[Documentation](http://doc.openmensa.org/parsers/tutorial/)
+[offical Parser Documentation](http://doc.openmensa.org/parsers/tutorial/)
