@@ -1,10 +1,11 @@
-# OpenMensa Parser for SV-Group
+# OpenMensa Parser
 
-## List of all SV-Restaurants
+## SV-Group Parser
 
-[All Restaurants here](http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json)
+* [All SV-Restraurants here](http://openmensa.herokuapp.com/parsers/svgroup)
+* [SV (Schweiz) AG](http://www.sv-restaurant.ch/de/)
 
 
 ## OpenMensa Parser Documentation
 
-[Dokumentation](http://doc.openmensa.org/parsers/tutorial/)
+[Documentation](http://doc.openmensa.org/parsers/tutorial/)
