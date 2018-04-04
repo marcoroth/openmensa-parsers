@@ -28,8 +28,8 @@
  # opening_hours_el = doc.css(".opening-hours p")
  #
  # opening_hours_el.each do |oh|
- #   days = oh.css("strong").first.content.split("- ")
- #   hours = oh.content.gsub(oh.css("strong").first.content, "").strip!.gsub!(" Uhr", "").split("-")
+ #   days = oh.css("strong").first&.content&.split("- ")
+ #   hours = oh&.content&.gsub(oh.css("strong").first&.content, "").strip!.gsub!(" Uhr", "").split("-")
  #
  #   first_day = week_days.select{ |wd| wd[:de] == days.first || wd[:fr] == days.first }.first
  #   last_day = week_days.select{ |wd| wd[:de] == days.last || wd[:fr] == days.last}.first
