@@ -18,7 +18,12 @@ xml = ::Nokogiri::XML::Builder.new { |xml|
       days_el[range].each do |day|
 
         date_string = doc.css(".day-nav .date")[counter]&.content.to_s + Date.today.year.to_s
-        date = Date.strptime(date_string, "%d.%m.%Y")
+        begin
+          date = Date.strptime(date_string, "%d.%m.%Y")
+        rescue ArgumentError => e
+          date = "unkown"
+          puts "DEBUG: date: #{date_string}"
+        end
         counter += 1
 
         xml.day(date: date){
