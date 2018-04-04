@@ -17,7 +17,7 @@ xml = ::Nokogiri::XML::Builder.new { |xml|
 
       days_el[range].each do |day|
 
-        date_string = doc.css(".day-nav .date")[counter]&.content + Date.today.year.to_s
+        date_string = doc.css(".day-nav .date")[counter]&.content.to_s + Date.today.year.to_s
         date = Date.strptime(date_string, "%d.%m.%Y")
         counter += 1
 
@@ -25,9 +25,9 @@ xml = ::Nokogiri::XML::Builder.new { |xml|
 
           day.css('.menu-item').each do |item|
 
-            meal = item.css(".menu-title").first&.content
+            meal = item.css(".menu-title").first&.content.to_s
             prices = item.css(".price")
-            description = item.css(".menu-description").first&.content.gsub("\n\n", "\n").gsub("\n", " - ")
+            description = item.css(".menu-description").first&.content&.gsub("\n\n", "\n")&.gsub("\n", " - ")
 
             if meal.length == 0
               meal = "Kein Menu Name"
@@ -42,11 +42,11 @@ xml = ::Nokogiri::XML::Builder.new { |xml|
 
             prices.each do |p|
               if p.css("span").last&.content == "INT"
-                price_employees = p.css("span").first&.content
+                price_employees = p.css("span").first&.content.to_s
               end
 
               if p.css("span").last&.content == "EXT"
-                price_others = p.css("span").first&.content
+                price_others = p.css("span").first&.content.to_s
               end
             end
 
