@@ -1,3 +1,5 @@
+require "date"
+
 url = "http://#{mensa_name}.sv-restaurant.ch/de/menuplan/"
 doc = Nokogiri::HTML(open(url))
 
@@ -21,7 +23,7 @@ xml = ::Nokogiri::XML::Builder.new { |xml|
         begin
           date = Date.strptime(date_string, "%d.%m.%Y")
         rescue ArgumentError => e
-          date = "unkown"
+          date = Date.today.to_s
           puts "DEBUG: date: #{date_string}"
         end
         counter += 1
