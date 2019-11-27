@@ -13,7 +13,7 @@
 
       This is a parser for <a href="https://openmensa.org">openmensa.org</a>. It fetches and converts public data from <a href="http://www.sv-restaurant.ch/de/">SV (Schweiz) AG</a><br><br>
 
-      <% url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json" %>
+      <% url = "https://e-h.sv-restaurant.ch/de/menuplan/persrest-data.json" %>
       <% json = JSON.load(open(url)) %>
 
       <p><b><%= "#{json["items"].count}" %></b> Einträge</p>

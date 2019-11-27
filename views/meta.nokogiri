@@ -1,4 +1,4 @@
- url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
+ url = "http://e-h.sv-restaurant.ch/de/menuplan/persrest-data.json"
  json = JSON.load(open(url))
 
  mensa_url = "http://#{mensa_name}.sv-restaurant.ch"

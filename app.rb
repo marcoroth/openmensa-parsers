@@ -16,7 +16,7 @@ get '/parsers/svgroup' do
 end
 
 get '/parsers/svgroup/meta', provides: ['json'] do
-  url = "http://mensa-fhnw.sv-restaurant.ch/de/menuplan/persrest-data.json"
+  url = "http://e-h.sv-restaurant.ch/de/menuplan/persrest-data.json"
   json = JSON.load(open(url))
 
   canteens = []
